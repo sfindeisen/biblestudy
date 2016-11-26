@@ -16,7 +16,12 @@ help:
 all : build
 
 .PHONY : build
-build: proroctwa-mesjanskie.pdf
+build: malzenstwo.pdf proroctwa-mesjanskie.pdf
+
+.PHONY : malzenstwo.pdf
+malzenstwo.pdf:
+	pdflatex $(TEXOPTS) malzenstwo.tex
+	pdflatex $(TEXOPTS) malzenstwo.tex
 
 .PHONY : proroctwa-mesjanskie.pdf
 proroctwa-mesjanskie.pdf:
@@ -25,6 +30,12 @@ proroctwa-mesjanskie.pdf:
 
 .PHONY : garbage-clean
 garbage-clean:
+	rm -f out/malzenstwo.aux
+	rm -f out/malzenstwo.lof
+	rm -f out/malzenstwo.log
+	rm -f out/malzenstwo.lot
+	rm -f out/malzenstwo.out
+	rm -f out/malzenstwo.toc
 	rm -f out/proroctwa-mesjanskie.aux
 	rm -f out/proroctwa-mesjanskie.lof
 	rm -f out/proroctwa-mesjanskie.log
@@ -34,5 +45,6 @@ garbage-clean:
 
 .PHONY : clean
 clean : garbage-clean
+	rm -f out/malzenstwo.pdf
 	rm -f out/proroctwa-mesjanskie.pdf
 
