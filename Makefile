@@ -20,11 +20,13 @@ build: malzenstwo.pdf proroctwa-mesjanskie.pdf
 
 .PHONY : malzenstwo.pdf
 malzenstwo.pdf:
+	mkdir -p out
 	pdflatex $(TEXOPTS) malzenstwo.tex
 	pdflatex $(TEXOPTS) malzenstwo.tex
 
 .PHONY : proroctwa-mesjanskie.pdf
 proroctwa-mesjanskie.pdf:
+	mkdir -p out
 	pdflatex $(TEXOPTS) proroctwa-mesjanskie.tex
 	pdflatex $(TEXOPTS) proroctwa-mesjanskie.tex
 
@@ -47,4 +49,3 @@ garbage-clean:
 clean : garbage-clean
 	rm -f out/malzenstwo.pdf
 	rm -f out/proroctwa-mesjanskie.pdf
-
